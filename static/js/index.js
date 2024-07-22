@@ -1,13 +1,14 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
-var INTERP_BASE = "./static/models/CREATIVE_BLOCKS_35_MM";
-var NUM_INTERP_FRAMES = 21;
+var INTERP_BASE = "./static/comparison";
+var NUM_INTERP_FRAMES = 90;
+var FRAME_STEP = 3;
 
 var interp_images = {};
 function preloadInterpolationImages(item) {
   interp_images[item.id] = []
-  for (var i = 0; i < NUM_INTERP_FRAMES; i++) {
-    var path = INTERP_BASE + '/' + item.id + "/NVS_dynamic/" +  String(i).padStart(6, '0') + '.jpg';
+  for (var i = 0; i < NUM_INTERP_FRAMES; i+=FRAME_STEP) {
+    var path = INTERP_BASE + '/' + item.id + "/" +  String(i).padStart(4, '0') + '.jpg';
     interp_images[item.id][i] = new Image();
     interp_images[item.id][i].src = path;
   }

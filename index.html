@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="SV3D generates novel multi-view synthesis from a single input image.">
-  <meta name="keywords" content="Video Diffusion, 3D Generation, NeRF">
+        content="SF3D generates high quality 3D assets from a single input image.">
+  <meta name="keywords" content="Feed-forward, Large Reconstruction Model, 3D Generation, Mesh, UV Unwrapping, Games">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SV3D: Novel Multi-view Synthesis and 3D Generation from a Single Image using Latent Video Diffusion</title>
-
+  <title>SF3D: Stable Fast 3D Mesh Reconstruction with UV-unwrapping and Illumination Disentanglement</title>
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat:wght@600|Lato:wght@400;700|Castoro"
         rel="stylesheet">
@@ -36,41 +35,24 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">SV3D: Novel Multi-view Synthesis and 3D Generation from a Single Image using Latent Video Diffusion</h1>
+          <h1 class="title is-1 publication-title">SF3D: Stable Fast 3D Mesh Reconstruction with UV-unwrapping and Illumination Disentanglement</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://voletiv.github.io">Vikram Voleti</a><sup>*</sup>,</span>
-            <span class="author-block">
-              <a href="https://chhankyao.github.io">Chun-Han Yao</a><sup>*</sup>,</span>
-            <span class="author-block">
-              <a href="https://markboss.me">Mark Boss</a><sup>*</sup>,
+              <a href="https://markboss.me">Mark Boss</a>,
             </span>
             <span class="author-block">
-              Adam Letts,
+              <a href="https://zixuanh.com">Zixuan Huang</a>,
             </span>
             <span class="author-block">
-              David Pankratz,
+              <a href="https://www.aaryaman.net">Aaryaman Vasishta</a>,
             </span>
             <span class="author-block">
-              <a href="https://twitter.com/cut_pow">Dmitrii Tochilkin</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://twitter.com/chrlaf">Christian Laforte</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://twitter.com/robrombach">Robin Rombach</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://varunjampani.github.io">Varun Jampani</a><sup>*</sup>
+              <a href="https://varunjampani.github.io">Varun Jampani</a>
             </span>
           </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>*</sup>Core Technical Contributions</span>
-          </div>
-
+          </br>
           <div>
-	    <img src="./static/images/Logo.png" width="20%">
+	          <img src="./static/images/Logo.png" width="20%">
           </div>
 
           <div class="column has-text-centered">
@@ -78,7 +60,7 @@
               <!-- arXiv Link. -->
               <span class="link-block">
                 <!-- TODO -->
-                <a href="https://arxiv.org/abs/2403.12008"
+                <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -88,7 +70,7 @@
               </span>
               <span class="link-block">
                 <!-- TODO -->
-                <a href="https://huggingface.co/stabilityai/sv3d" target="_blank"
+                <a href="https://huggingface.co/stabilityai/stable_fast_3d" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-desktop"></i>
@@ -99,7 +81,7 @@
               <!-- Video Link. -->
               <span class="link-block">
                 <!-- TODO -->
-                <a href="https://youtu.be/Zqw4-1LcfWg" target="_blank"
+                <a href="#" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -109,15 +91,24 @@
               </span>
               <!-- Code Link. -->
               <!-- TODO -->
-              <!-- <span class="link-block">
-                <a href="https://github.com/google/nerfies"
+              <span class="link-block">
+                <a href="https://github.com/stabilityai/stable_fast_3d"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
                   </a>
-              </span> -->
+              </span>
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-laptop"></i>
+                  </span>
+                  <span>Demo</span>
+                  </a>
+              </span>
               <!-- Dataset Link. -->
               <!-- <span class="link-block">
                 <a href="https://github.com/google/nerfies/releases/tag/0.1"
@@ -145,7 +136,7 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="sv3d">SV3D</span> takes an image as input and generates novel multi-view images and 3D models.
+        <span class="sf3d">SF3D</span> takes a single image as input and generates a textured UV-unwrapped 3D model in under a second.
       </h2>
     </div>
   </div>
@@ -164,22 +155,17 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present Stable Video 3D (<span class="sv3d">SV3D</span>) - a latent video diffusion model 
-            for high-resolution, image-to-multi-view generation of orbital videos around a 3D object.
+            We present Stable Fast 3D (<span class="sf3d">SF3D</span>) - a feed-forward 3D asset generation model
+            , which generates UV-unwrapped, textured models with material parameters and delit albedo in under a second.
           </p>
           <p>
-            Recent work on 3D generation propose techniques to adapt 2D generative models for novel view 
-            synthesis (NVS) and 3D optimization. However, these methods have several disadvantages due to 
-            either limited views or inconsistent NVS, thereby affecting the performance of 3D object generation.
-          </p>
-          <p>
-            In this work, we propose <span class="sv3d">SV3D</span> that adapts image-to-video diffusion model for 
-            novel multi-view synthesis and 3D generation, thereby leveraging the generalization and multi-view 
-            consistency of the video models, while further adding explicit camera control for NVS. We also propose 
-            improved 3D optimization techniques to use <span class="sv3d">SV3D</span> and its NVS outputs for 
-            image-to-3D generation. Extensive experimental results on multiple datasets with 2D and 3D metrics as 
-            well as user study demonstrate <span class="sv3d">SV3D</span>'s state-of-the-art performance on 
-            NVS as well as 3D reconstruction compared to prior works.
+            Utilizing the Large Reconstruction Model (LRM) as its foundation, <span class="sf3d">SF3D</span> achieves impressive 
+            performance, reconstructing detailed, textured meshes in just 0.5 seconds. Unlike traditional approaches, 
+            <span class="sf3d">SF3D</span> is explicitly trained for mesh generation, incorporating a fast UV unwrapping technique 
+            that enables swift texture generation rather than relying on vertex colors. Additionally, the method learns material 
+            parameters and normal maps to enhance the visual quality of the reconstructed models. Furthermore, <span class="sf3d">SF3D</span> 
+            integrates a delighting step to effectively remove low-frequency illumination effects, ensuring that the reconstructed 
+            meshes can be easily used in novel illumination conditions. 
           </p>
         </div>
       </div>
@@ -209,14 +195,14 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Comparison and Results</h2>
 
-        <!-- NVS -->
-        <h3 class="title is-4">Novel Multi View Synthesis</h3>
+        <!-- Asset Gen -->
+        <h3 class="title is-4">Asset Generation</h3>
         <div class="content has-text-justified">
           <p>
-            Results on diverse images.
+            Results on a set of diverse images.
           </p>
           <video id="teaser" autoplay muted loop playsinline height="100%">
-            <source src="./static/videos/NVS.mp4"
+            <source src="./static/videos/turntable.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -228,28 +214,28 @@
         <div class="interpolation-panel">
           <div class="is-vcentered columns">
             <div class="column is-3 has-text-centered interpolation-video-column">
-              <div class="interpolation-image-wrapper" id="SV3D">
+              <div class="interpolation-image-wrapper" id="ours">
                 Loading...
               </div> 
-              <p><b>SV3D (ours)</b></p>
+              <p><b>SF3D (ours)</b></p>
             </div>
             <div class="column is-3  has-text-centered interpolation-video-column">
-              <div class="interpolation-image-wrapper" id="Stable_Zero123">
+              <div class="interpolation-image-wrapper" id="triposr">
                 Loading...
               </div>
-              <p>Stable Zero123</p>
+              <p>TripoSR</p>
             </div>
             <div class="column is-3 has-text-centered interpolation-video-column">
-              <div class="interpolation-image-wrapper" id="Zero123XL">
+              <div class="interpolation-image-wrapper" id="crm">
                 Loading...
               </div>
-              <p>Zero123 XL</p>
+              <p>CRM</p>
             </div>
             <div class="column is-3 has-text-centered interpolation-video-column">
-              <div class="interpolation-image-wrapper" id="GT">
+              <div class="interpolation-image-wrapper" id="instantmesh">
                 Loading...
               </div>
-              <p>Ground-Truth</p>
+              <p>InstantMesh</p>
             </div>
           </div>
         
@@ -261,7 +247,7 @@
         <!--/ NVS -->
 
         <!-- 3D -->
-        <h3 class="title is-4">3D Reconstructions</h3>
+        <!-- <h3 class="title is-4">3D Reconstructions</h3>
         <div class="content has-text-justified">
           <p>
             3D meshes from diverse images.
@@ -270,7 +256,7 @@
             <source src="./static/videos/TurnTable.mp4"
                     type="video/mp4">
           </video>
-        </div>
+        </div> -->
         <div class="content has-text-justified">
           <p>
             Click on the individual images to view the 3D model.
@@ -293,10 +279,10 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{voleti2024sv3d,
-  author    = {Voleti, Vikram and Yao, Chun-Han and Boss, Mark and Letts, Adam and Pankratz, David and Tochilkin,  Dmitrii and Laforte, Christian and Rombach, Robin and Jampani, Varun},
-  title     = {{SV3D}: Novel Multi-view Synthesis and {3D} Generation from a Single Image using Latent Video Diffusion},
-  booktitle = {European Conference on Computer Vision (ECCV)},
+    <pre><code>@article{boss2024sf3d,
+  author    = {Boss, Mark and Huang, Zixuan and Vasishta, Aaryaman and Jampani, Varun},
+  title     = {{SF3D}: Stable Fast {3D} Mesh Reconstruction with UV-unwrapping and Illumination Disentanglement},
+  journal   = {{arXiv}},
   year      = {2024},
 }</code></pre>
   </div>

@@ -5,7 +5,7 @@ import os
 # get all folders in models/ dir
 files = [f for f in os.listdir('static/models') if 
          os.path.isdir(os.path.join('static/models', f)) and 
-         os.path.exists(os.path.join('static/models', f, "model.obj"))]
+         os.path.exists(os.path.join('static/models', f, "mesh.glb"))]
 
 # write to file
 with open('static/gallery_list.txt', 'w') as f:

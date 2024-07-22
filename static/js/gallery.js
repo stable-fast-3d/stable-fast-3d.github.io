@@ -40,7 +40,7 @@ fetch("./static/gallery_list.txt")
         var img = document.createElement("img");
         // TODO: Change to the actual image. Potentially just put the input img in the models folder
         // Replace this then with input.jpg/png
-        img.src = "./static/models/" + line + "/preview.jpg";
+        img.src = "./static/models/" + line + "/input.jpg";
         img.alt = line;
         // Add a onclick event to open the modal
         img.addEventListener('click', function(e) {
