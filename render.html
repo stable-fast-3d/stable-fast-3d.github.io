@@ -69,13 +69,13 @@
                 camera.autoRotationBehavior.idleRotationSpeed = -.5;
             }
 
+            var transformNode = new BABYLON.TransformNode("", scene);
 
-            const mesh = scene.meshes[0];
-            // console.log(mesh);
-            // const pbrMaterial = mesh.material;
-
-            // mesh.rotation.x = 1.5 * Math.PI;
-            // mesh.rotation.x = 0.;
+            // Get geometry which contains "geometry_0" in .id
+            var mesh = scene.getMeshByID("geometry_0");
+            if (mesh) {
+                mesh.parent = transformNode;
+            }
 
             var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
             var skyboxMaterial = new BABYLON.PBRMaterial("skyBox", scene);
@@ -159,16 +159,16 @@
                     var getCurPos = function (evt) {
                         currentPosition.x = evt.clientX;
                         currentPosition.y = evt.clientY;
-                        currentRotation.x = mesh.rotation.x;
-                        currentRotation.y = mesh.rotation.y;
+                        currentRotation.x = transformNode.rotation.x;
+                        currentRotation.y = transformNode.rotation.y;
                         clicked = true;
                     }
                     var rotate = function (evt) {
                         if (!clicked) {
                             return;
                         }
-                        mesh.rotation.y = currentRotation.y - (evt.clientX - currentPosition.x) / 100.0;
-                        mesh.rotation.x = currentRotation.x + (evt.clientY - currentPosition.y) / 100.0;
+                        transformNode.rotation.y = currentRotation.y - (evt.clientX - currentPosition.x) / 100.0;
+                        transformNode.rotation.x = currentRotation.x + (evt.clientY - currentPosition.y) / 100.0;
                     }
                     var stop = function (evt) {
                         clicked = false;
